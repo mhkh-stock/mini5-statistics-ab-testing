@@ -1,0 +1,8 @@
+A (current button): 4000 visitors, 467 conversions, rate 11.675%
+B (new button):     4000 visitors, 576 conversions, rate 14.400%
+Uplift: 2.725 percentage points (23.3% relative), +109 conversions over the test
+z-statistic: 3.619
+p-value (two-sided): 0.00030
+95% CI for the difference: 1.250 to 4.200 percentage points
+SRM check: chi2 = 0.000, p = 1.000 (split 4000/4000, clean if p > 0.05)
+Verdict: SHIP B: variant wins, p < 0.05 and the 95% CI excludes zero.
