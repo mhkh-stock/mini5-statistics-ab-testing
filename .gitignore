@@ -1,0 +1,5 @@
+# Runner artifacts — rebuilt on every run, never committed.
+data/demo.db
+# Python bytecode.
+__pycache__/
+*.pyc

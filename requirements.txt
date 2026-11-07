@@ -1,0 +1,2 @@
+# No third-party dependencies — Python 3 standard library + SQLite only.
+# (The normal CDF comes from math.erf; no scipy, no pandas, nothing to pin.)

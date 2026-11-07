@@ -14,8 +14,8 @@ computed by the pack itself — nothing is hand-typed — and
 
 A fictional online shop tests a new checkout button (B) against the
 current button (A). 14 days, 1–14 Oct 2026, 50/50 allocation, the
-same number of visitors per variant every day: 4,000 visitors each,
-8,000 total. Data: `data/raw/experiment_SAMPLE.csv` · Schema:
+same number of visitors per variant every day (210–350 a day):
+4,000 visitors per variant over the 14 days, 8,000 total. Data: `data/raw/experiment_SAMPLE.csv` · Schema:
 `data/schema.sql` · Seed: `data/seed.sql` (generation method
 documented in `data/README.md`) · Built database: `data/demo.db`
 (rebuilt any time with `python3 run_analysis.py`, which also verifies
@@ -107,6 +107,24 @@ comes from `math.erf`, no scipy). Verified on SQLite 3.45.1.
 - Verified outputs are saved in `outputs/` (one `.txt` per query
   plus `ab_results.txt`); the runner re-asserts all of the above
   on every run.
+
+## Limits
+
+- **SAMPLE data only.** The experiment is fictional; the numbers
+  show the method, not a real business result. Do not cite them as
+  evidence about any real shop or button.
+- **No a priori power or sample-size calculation.** The test ran a
+  fixed 14 days with the traffic it got (4,000 per variant); the
+  pack verifies the result, it does not size the test in advance.
+- **One test, one verdict.** No multiple-comparison correction is
+  applied — running several variants or re-testing until p < 0.05
+  would need one, and would void the p-value above.
+- **The device split is a segment check, not a second test.** B
+  wins on both devices, which rules out a mix artifact; it is not
+  a separately powered claim about mobile or desktop alone.
+- **Fixed horizon.** The verdict is read once, at day 14. The
+  cumulative view (query 03) is there to show why peeking mid-test
+  would have been a guess, not to support an earlier call.
 
 ## Note for the publisher
 

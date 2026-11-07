@@ -16,3 +16,29 @@ proportion, so device totals reconcile exactly to daily totals.
 Files: raw CSV `raw/experiment_SAMPLE.csv` (28 rows: 14 days × 2
 variants) · Schema `schema.sql` · Seed `seed.sql` · Rebuild any time
 with `python3 run_analysis.py` (also runs the statistics and checks).
+
+## Data dictionary
+
+`experiment_daily` — one row per day per variant (the experiment):
+
+| Column | Type | Meaning |
+|---|---|---|
+| `date` | TEXT | Day of the test, `YYYY-MM-DD`, 2026-10-01 to 2026-10-14 |
+| `variant` | TEXT | `A` (current button) or `B` (new button) |
+| `visitors` | INTEGER | Visitors shown that variant that day (210–350; identical for A and B each day) |
+| `conversions` | INTEGER | Of those visitors, how many converted |
+
+`experiment_device` — the same totals split by device (a segment
+summary, not a second experiment):
+
+| Column | Type | Meaning |
+|---|---|---|
+| `variant` | TEXT | `A` or `B` |
+| `device` | TEXT | `mobile` (60% of visitors) or `desktop` (40%) |
+| `visitors` | INTEGER | Visitors on that device for that variant |
+| `conversions` | INTEGER | Conversions on that device for that variant |
+
+Device totals reconcile exactly to the daily totals (A: 2,400 + 1,600
+= 4,000 visitors, 280 + 187 = 467 conversions; B: 2,400 + 1,600 =
+4,000 visitors, 346 + 230 = 576 conversions) — asserted as a check
+by `run_analysis.py`.
