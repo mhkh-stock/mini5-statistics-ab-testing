@@ -1,5 +1,7 @@
 # Mini #5 — Statistics & A/B Testing Pack
 
+**Repo:** https://github.com/mhkh-stock/mini5-statistics-ab-testing
+
 **SAMPLE / DEMO data only.** Fictional shop, fictional experiment,
 fictional visitors. Never claimed as real client or real business data.
 
@@ -126,8 +128,9 @@ comes from `math.erf`, no scipy). Verified on SQLite 3.45.1.
   cumulative view (query 03) is there to show why peeking mid-test
   would have been a guess, not to support an earlier call.
 
-## Note for the publisher
+## Published
 
-No GitHub repo was created and nothing was pushed, per the task —
-the GitHub App cannot create repos, so this mini stays built
-locally, verified and ready until its repo exists.
+Live on GitHub: https://github.com/mhkh-stock/mini5-statistics-ab-testing
+(published 4 Nov 2026, 16 files live). The built `data/demo.db` is
+intentionally not uploaded — rebuild it any time with
+`python3 run_analysis.py`.
